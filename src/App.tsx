@@ -1,7 +1,7 @@
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import "./App.css";
-
 import { useState } from "react";
+import { calculate } from "./services/calculator";
 
 function App() {
 	const [valueA, setValueA] = useState<string>("");
@@ -34,26 +34,10 @@ function App() {
 	}
 
 	function calculateResult() {
-		if (valueA !== null && valueB !== null && operation !== null) {
-			let result: number;
-			switch (operation) {
-				case "+":
-					result = +valueA + +valueB;
-					break;
-				case "-":
-					result = +valueA - +valueB;
-					break;
-				case "*":
-					result = +valueA * +valueB;
-					break;
-				case "/":
-					result = +valueA / +valueB;
-					break;
-				default:
-					return;
-			}
-			setResult(String(result));
-			setValueA(String(result));
+		if (valueA !== "" && valueB !== "" && operation !== "") {
+			const res = calculate(valueA, valueB, operation as "+" | "-" | "*" | "/");
+			setResult(res);
+			setValueA(res);
 			setValueB("");
 			setOperation("");
 			setActiveValue("valueA");
