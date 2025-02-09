@@ -21,17 +21,14 @@ function App() {
 	function inputNumber(num: string) {
 		if (activeValue === "valueA") {
 			setValueA((prevValueA) => prevValueA + num);
-			console.log(valueA); //LOG
 		} else if (activeValue === "valueB") {
 			setValueB((prevValueB) => prevValueB + num);
-			console.log(valueB); //LOG
 		}
 	}
 
 	function inputOperator(op: "+" | "-" | "*" | "/") {
 		if (activeValue === "valueA") {
 			setOperation(op);
-			console.log(op); //LOG
 			setActiveValue("valueB");
 		}
 	}
@@ -73,8 +70,10 @@ function App() {
 					fullWidth
 					variant="outlined"
 					value={result !== "" ? result : activeValue === "valueA" ? valueA : valueB}
-					InputProps={{
-						readOnly: true,
+					slotProps={{
+						htmlInput: {
+							readOnly: true,
+						},
 					}}
 				/>
 			</Box>
