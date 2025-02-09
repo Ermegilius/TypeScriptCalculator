@@ -1,3 +1,4 @@
+import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import "./App.css";
 
 import { useState } from "react";
@@ -63,33 +64,77 @@ function App() {
 	}
 
 	return (
-		<div className="App">
-			<p>Current A: {valueA}</p>
-			<p>Current B: {valueB}</p>
-			<p>Current result {result}</p>
-			<p>Current operation {operation}</p>
-			<div className="calculator">
-				<input value={result !== "" ? result : activeValue === "valueA" ? valueA : valueB} readOnly />
-				<div className="buttons">
-					<button onClick={() => clearDisplay()}>C</button>
-					<button onClick={() => inputNumber("7")}>7</button>
-					<button onClick={() => inputNumber("8")}>8</button>
-					<button onClick={() => inputNumber("9")}>9</button>
-					<button onClick={() => inputOperator("/")}>/</button>
-					<button onClick={() => inputNumber("4")}>4</button>
-					<button onClick={() => inputNumber("5")}>5</button>
-					<button onClick={() => inputNumber("6")}>6</button>
-					<button onClick={() => inputOperator("*")}>*</button>
-					<button onClick={() => inputNumber("1")}>1</button>
-					<button onClick={() => inputNumber("2")}>2</button>
-					<button onClick={() => inputNumber("3")}>3</button>
-					<button onClick={() => inputOperator("-")}>-</button>
-					<button onClick={() => inputNumber("0")}>0</button>
-					<button onClick={() => calculateResult()}>=</button>
-					<button onClick={() => inputOperator("+")}>+</button>
-				</div>
-			</div>
-		</div>
+		<Container maxWidth="sm" sx={{ mt: 4 }}>
+			<Typography variant="h4" align="center" gutterBottom>
+				Calculator
+			</Typography>
+			<Box sx={{ mb: 2 }}>
+				<TextField
+					fullWidth
+					variant="outlined"
+					value={result !== "" ? result : activeValue === "valueA" ? valueA : valueB}
+					InputProps={{
+						readOnly: true,
+					}}
+				/>
+			</Box>
+			<Box
+				sx={{
+					display: "grid",
+					gridTemplateColumns: "repeat(4, 1fr)",
+					gap: 1,
+				}}
+			>
+				<Button variant="contained" onClick={clearDisplay}>
+					C
+				</Button>
+				<Button variant="contained" onClick={() => inputNumber("7")}>
+					7
+				</Button>
+				<Button variant="contained" onClick={() => inputNumber("8")}>
+					8
+				</Button>
+				<Button variant="contained" onClick={() => inputNumber("9")}>
+					9
+				</Button>
+				<Button variant="contained" onClick={() => inputOperator("/")}>
+					/
+				</Button>
+				<Button variant="contained" onClick={() => inputNumber("4")}>
+					4
+				</Button>
+				<Button variant="contained" onClick={() => inputNumber("5")}>
+					5
+				</Button>
+				<Button variant="contained" onClick={() => inputNumber("6")}>
+					6
+				</Button>
+				<Button variant="contained" onClick={() => inputOperator("*")}>
+					*
+				</Button>
+				<Button variant="contained" onClick={() => inputNumber("1")}>
+					1
+				</Button>
+				<Button variant="contained" onClick={() => inputNumber("2")}>
+					2
+				</Button>
+				<Button variant="contained" onClick={() => inputNumber("3")}>
+					3
+				</Button>
+				<Button variant="contained" onClick={() => inputOperator("-")}>
+					-
+				</Button>
+				<Button variant="contained" onClick={() => inputNumber("0")}>
+					0
+				</Button>
+				<Button variant="contained" onClick={calculateResult}>
+					=
+				</Button>
+				<Button variant="contained" onClick={() => inputOperator("+")}>
+					+
+				</Button>
+			</Box>
+		</Container>
 	);
 }
 
