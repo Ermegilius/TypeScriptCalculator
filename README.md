@@ -1,50 +1,58 @@
-# React + TypeScript + Vite
+# TypeScript Calculator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a simple calculator web application built with React, TypeScript, and Material UI (MUI). It demonstrates basic arithmetic operations and modern React component design with a responsive layout.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   **Arithmetic Operations:** Perform addition, subtraction, multiplication, and division.
+-   **Responsive UI:** Built with Material UI for a modern, clean, and responsive design.
+-   **Interactive Display:** Shows real-time calculation results in a read-only text field.
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. **Clone the repository:**
 
-- Configure the top-level `parserOptions` property like this:
+    ```sh
+    git clone https://github.com/yourusername/TypeScriptCalculator.git
+    ```
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+2. **Navigate to the project directory:**
+
+    ```sh
+    cd TypeScriptCalculator
+    ```
+
+3. **Install dependencies:**
+
+    ```sh
+    npm install
+    ```
+
+## Usage
+
+Start the development server with:
+
+```sh
+npm start
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Then open your browser and navigate to [http://localhost:3000](http://localhost:3000) to view the application.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Build
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+To create a production build, run:
+
+```sh
+npm run build
 ```
+
+## Technologies Used
+
+-   **React** for building the UI
+-   **TypeScript** for type safety
+-   **Material UI (MUI)** for UI components
+-   **JavaScript (ES6+)** for core functionality
+
+## Contributing
+
+Contributions are welcome! Please feel free to open issues or submit pull requests for improvements or bug fixes.
